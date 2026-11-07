@@ -1,11 +1,12 @@
 .nav .logo img{width:30px;height:30px;vertical-align:-7px;margin-inline-end:.45rem;border-radius:7px}
 .rh{padding:3.2rem 1.2rem 1.6rem}.rh .ar{margin:0}.rh h1{font-size:clamp(1.8rem,5vw,2.6rem)}.rh p{max-width:640px;margin:.6rem auto}
-.rh p a{color:var(--em);border-bottom:1px solid var(--gold)}.acts{display:flex;gap:.7rem;justify-content:center;flex-wrap:wrap;margin-top:1.2rem!important}
+.rh p a:not(.btn){color:var(--em);border-bottom:1px solid var(--gold)}
+.rh .acts .btn{color:#fff}.rh .acts .btn.ghost{color:var(--em);background:#fff}.acts{display:flex;gap:.7rem;justify-content:center;flex-wrap:wrap;margin-top:1.2rem!important}
 .btn{padding:.7rem 1.6rem}.btn.ghost{background:#fff;color:var(--em);box-shadow:none}
 .sec{font-size:1.45rem;margin:2.4rem 0 1rem;border-bottom:1px solid #e8dfc9;padding-bottom:.5rem}.sec span{color:var(--gold);font-size:1rem}
-.chips{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:.7rem}
-.chip{background:#fff;border:1px solid #ece3cd;border-radius:12px;padding:.75rem 1rem;display:flex;flex-direction:column;gap:.1rem;transition:.15s}
+.chips{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(170px,100%),1fr));gap:.7rem;min-width:0}
+.chip{background:#fff;border:1px solid #ece3cd;border-radius:12px;padding:.75rem 1rem;display:flex;flex-direction:column;gap:.1rem;transition:.15s;min-width:0;overflow-wrap:anywhere}
 .chip:hover{border-color:var(--gold);transform:translateY(-2px)}.chip b{color:var(--em2);font-weight:600}.chip small{color:var(--mut)}
-.tfs{display:grid;gap:1.2rem}.tf{background:#fff;border:1px solid #ece3cd;border-top:3px solid var(--gold);border-radius:16px;padding:1.3rem}
+.tfs{display:grid;grid-template-columns:minmax(0,1fr);gap:1.2rem}.tf{min-width:0}.tf{background:#fff;border:1px solid #ece3cd;border-top:3px solid var(--gold);border-radius:16px;padding:1.3rem}
 .tf h3{margin:0;font-size:1.35rem}.tf .cnt{color:var(--mut);margin:.2rem 0 .9rem}.tf .chip{background:var(--cream)}
-@media(max-width:640px){.nav nav a{margin-left:.9rem}.chips{grid-template-columns:repeat(2,minmax(0,1fr))}.wrap{padding:0 1rem 3rem}.chip{padding:.6rem .7rem}}
+@media(max-width:640px){.chips{grid-template-columns:repeat(2,minmax(0,1fr))}.wrap{padding:0 1rem 3rem}.tf{padding:1rem}.rh .btn{padding:.65rem 1.2rem}.chip{padding:.6rem .7rem}}
