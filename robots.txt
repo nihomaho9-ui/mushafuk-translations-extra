@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
+
 Sitemap: https://t1.mushafuk.online/sitemap.xml
-# Canonicals currently still mushafuk.online until cutover.
-Sitemap: https://t1.mushafuk.online/sitemap-faq.xml
