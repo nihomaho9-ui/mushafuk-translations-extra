@@ -1,7 +1,7 @@
 try{var d=sessionStorage.getItem("qm.turn");if(d){document.documentElement.classList.add("qm-turning");}}catch(e){}
 (function () {
-  if (!window.__trSwipe) {
-    window.__trSwipe = 1;
+  if (window.__trSwipe !== 2) {
+    window.__trSwipe = 2;
     var sx = null, sy = null, slock = null, sdx = 0;
     function go(dir) {
       var m = location.pathname.match(/^(.*)\/page\/(\d+)\/?$/);
@@ -22,7 +22,10 @@ try{var d=sessionStorage.getItem("qm.turn");if(d){document.documentElement.class
         if (Math.abs(dx) < 12 && Math.abs(dy) < 12) return;
         slock = Math.abs(dx) > Math.abs(dy) * 1.15 ? "x" : "y";
       }
-      if (slock === "x" && ev && ev.cancelable) ev.preventDefault();
+      if (slock === "x") {
+        if (ev && ev.cancelable) ev.preventDefault();
+        if (ev && ev.stopPropagation) ev.stopPropagation();
+      }
     }
     function up() {
       if (sx == null) return;
