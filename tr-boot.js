@@ -74,6 +74,12 @@
       th.setAttribute("data-tr-theme", "1");
       document.head.appendChild(th);
     }
+    if (!document.querySelector("script[data-qm-shelf]")) {
+      var sh = document.createElement("script");
+      sh.src = "https://mushafuk.online/read-shelf.js?v=3";
+      sh.setAttribute("data-qm-shelf", "1");
+      document.head.appendChild(sh);
+    }
     var box = document.createElement("nav");
     box.className = "pn";
     function link(href, label) {
