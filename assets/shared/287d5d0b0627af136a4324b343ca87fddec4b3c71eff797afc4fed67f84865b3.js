@@ -1,95 +1,105 @@
 try{var d=sessionStorage.getItem("qm.turn");if(d){document.documentElement.classList.add("qm-turning");}}catch(e){}
-document.addEventListener("DOMContentLoaded",function(){
-  var art=document.getElementById("qtext");
-  if(!art||art.dataset.ready) return;
-  art.dataset.ready="1";
-  var gate=document.getElementById("gate"); if(gate) gate.style.display="none";
-  var page=document.getElementById("page"); if(page) page.style.display="none";
-  var num=document.querySelector(".num"); if(num) num.style.display="none";
-  art.removeAttribute("style");
-  function verseOf(el){
-    var b=el.querySelector&&el.querySelector("b");
-    if(!b) return null;
-    var m=b.textContent.match(/(\d+)\s*:\s*(\d+)/);
-    return m?{s:m[1],a:m[2]}:null;
+(function () {
+  var art = document.getElementById("qtext");
+  if (!art || art.dataset.neat) return;
+  art.dataset.neat = "1";
+  art.dataset.ready = "1";
+  var fix = document.createElement("style");
+  fix.textContent = "body>header,#gate,#page,.num,#qj{display:none!important}";
+  document.head.appendChild(fix);
+
+  function trDir() {
+    var sec = art.querySelector("section");
+    if (sec && sec.getAttribute("dir")) return sec.getAttribute("dir");
+    if (sec) return "ltr";
+    return art.getAttribute("dir") || document.documentElement.getAttribute("dir") || "ltr";
   }
-  function makeAr(text){
-    var p=document.createElement("p");
-    p.className="ar"; p.lang="ar"; p.dir="rtl"; p.textContent=text.trim();
-    return p;
+  function verse(p) {
+    var b = p.querySelector && p.querySelector("b");
+    if (!b) return null;
+    var m = (b.textContent || "").match(/(\d+)\s*:\s*(\d+)/);
+    return m ? { s: m[1], a: m[2] } : null;
   }
-  function interleave(){
-    var sec=art.querySelector("section");
-    if(!sec) return false;
-    var ars=[].filter.call(art.children,function(el){return el.tagName==="P";});
-    var trs=[].slice.call(sec.querySelectorAll("p"));
-    if(!ars.length||ars.length!==trs.length) return false;
-    ars.forEach(function(ap,i){
-      ap.classList.add("ar"); ap.dir="rtl"; ap.lang="ar";
-      trs[i].classList.add("tr");
-      ap.insertAdjacentElement("afterend", trs[i]);
-    });
-    return true;
-  }
-  function filter(){
-    var h=(location.hash||"").replace("#","");
-    var m=h.match(/^s?(\d+)(?:-\d+)?$/);
-    if(!m) return;
-    var want=m[1], any=false;
-    art.querySelectorAll("p.tr, p:not(.ar)").forEach(function(p){
-      var v=verseOf(p);
-      if(!v) return;
-      var show=v.s===want;
-      p.style.display=show?"":"none";
-      if(show) any=true;
-      var prev=p.previousElementSibling;
-      if(prev&&prev.classList.contains("ar")) prev.style.display=show?"":"none";
-    });
-    if(!any) art.querySelectorAll("p").forEach(function(p){p.style.display="";});
-  }
-  function nav(){
-    if(document.querySelector(".pn")) return;
-    var m=location.pathname.match(/^(.*)\/page\/(\d+)\/?$/);
-    if(!m) return;
-    var base=m[1], n=+m[2], max=604;
-    if(!document.querySelector(".tr-bar")){
-      var bar=document.createElement("header");
-      bar.className="tr-bar";
-      bar.innerHTML='<a class="x" href="'+base+'/" aria-label="surahs">↑</a><a href="'+base+'/">Mushafuk</a>';
-      document.body.insertBefore(bar, document.body.firstChild);
+  function nav() {
+    document.querySelectorAll(".tr-bar,.pn").forEach(function (n) { n.remove(); });
+    var m = location.pathname.match(/^(.*)\/page\/(\d+)\/?$/);
+    if (!m) return;
+    var base = m[1], n = +m[2], hash = location.hash || "";
+    var bar = document.createElement("header");
+    bar.className = "tr-bar";
+    bar.innerHTML = '<a class="x" href="' + base + '/">↑</a><a href="' + base + '/">Mushafuk</a>';
+    document.body.insertBefore(bar, document.body.firstChild);
+    var box = document.createElement("nav");
+    box.className = "pn";
+    function link(href, label) {
+      var a = document.createElement("a");
+      a.href = href;
+      a.textContent = label;
+      return a;
     }
-    var box=document.createElement("nav");
-    box.className="pn";
-    function link(href,label){var a=document.createElement("a"); a.href=href; a.textContent=label; return a;}
-    var hash=location.hash||"";
-    box.appendChild(n>1?link(base+"/page/"+(n-1)+"/"+hash,"←"):document.createElement("span"));
-    var mid=document.createElement("span"); mid.textContent=n+" / "+max; box.appendChild(mid);
-    box.appendChild(n<max?link(base+"/page/"+(n+1)+"/"+hash,"→"):document.createElement("span"));
+    box.appendChild(n > 1 ? link(base + "/page/" + (n - 1) + "/" + hash, "←") : document.createElement("span"));
+    var mid = document.createElement("span");
+    mid.textContent = n + " / 604";
+    box.appendChild(mid);
+    box.appendChild(n < 604 ? link(base + "/page/" + (n + 1) + "/" + hash, "→") : document.createElement("span"));
     art.insertAdjacentElement("afterend", box);
   }
-  if(!interleave()){
-    var m=location.pathname.match(/\/page\/(\d+)\/?$/);
-    if(m){
-      fetch("https://mushafuk.online/page/"+m[1]+"/index.html").then(function(r){return r.text();}).then(function(html){
-        var doc=new DOMParser().parseFromString(html,"text/html");
-        var ars=[].slice.call(doc.querySelectorAll("#qtext p"));
-        var trs=[].filter.call(art.querySelectorAll("p"), function(p){return p.querySelector("b");});
-        if(ars.length===trs.length){
-          trs.forEach(function(p,i){
-            if(p.previousElementSibling&&p.previousElementSibling.classList.contains("ar")) return;
-            p.classList.add("tr");
-            p.parentNode.insertBefore(makeAr(ars[i].textContent), p);
-          });
-        }
-        filter();
-      }).catch(function(){});
+  function build(pairs, title) {
+    var dir = trDir();
+    var want = ((location.hash || "").match(/^#s?(\d+)(?:-\d+)?$/) || [])[1];
+    var use = pairs.filter(function (pair) {
+      if (!want) return true;
+      var v = verse(pair.tr);
+      return !v || v.s === want;
+    });
+    if (!use.length) use = pairs;
+    art.replaceChildren();
+    if (title) {
+      var h = document.createElement("h2");
+      h.textContent = title;
+      art.appendChild(h);
     }
-  } else filter();
-  nav();
-  if(!document.getElementById("tr-amiri")){
-    var l=document.createElement("link");
-    l.id="tr-amiri"; l.rel="stylesheet";
-    l.href="https://fonts.googleapis.com/css2?family=Amiri&display=swap";
-    document.head.appendChild(l);
+    use.forEach(function (pair) {
+      var box = document.createElement("div");
+      box.className = "ayah";
+      pair.ar.className = "ar";
+      pair.ar.lang = "ar";
+      pair.ar.setAttribute("dir", "rtl");
+      pair.tr.className = "tr";
+      pair.tr.setAttribute("dir", dir);
+      box.appendChild(pair.ar);
+      box.appendChild(pair.tr);
+      art.appendChild(box);
+    });
+    nav();
   }
-});
+  var titleEl = art.querySelector("h1, h2");
+  var title = titleEl ? titleEl.textContent.trim() : "";
+  var sec = art.querySelector("section");
+  if (sec && sec.querySelector("p")) {
+    var ars = [].filter.call(art.children, function (el) { return el.tagName === "P"; });
+    var trs = [].slice.call(sec.querySelectorAll("p"));
+    if (ars.length && ars.length === trs.length) {
+      build(ars.map(function (ar, i) { return { ar: ar, tr: trs[i] }; }), title);
+      return;
+    }
+  }
+  var trs2 = [].filter.call(art.querySelectorAll("p"), function (p) { return p.querySelector("b"); });
+  var ars2 = [].slice.call(art.querySelectorAll("p.ar"));
+  if (ars2.length && ars2.length === trs2.length) {
+    build(ars2.map(function (ar, i) { return { ar: ar, tr: trs2[i] }; }), title);
+    return;
+  }
+  var pm = location.pathname.match(/\/page\/(\d+)\/?$/);
+  if (!pm || !trs2.length) { nav(); return; }
+  fetch("https://mushafuk.online/page/" + pm[1] + "/index.html").then(function (r) { return r.text(); }).then(function (html) {
+    var doc = new DOMParser().parseFromString(html, "text/html");
+    var ars = [].slice.call(doc.querySelectorAll("#qtext p"));
+    if (ars.length !== trs2.length) { nav(); return; }
+    build(ars.map(function (src, i) {
+      var p = document.createElement("p");
+      p.textContent = (src.textContent || "").trim();
+      return { ar: p, tr: trs2[i] };
+    }), title);
+  }).catch(function () { nav(); });
+})();
