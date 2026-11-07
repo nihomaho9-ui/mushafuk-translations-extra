@@ -44,7 +44,7 @@
   art.dataset.neat = "1";
   art.dataset.ready = "1";
   var fix = document.createElement("style");
-  fix.textContent = "html,body{height:auto!important;overflow:auto!important;display:block!important;touch-action:pan-y;-webkit-overflow-scrolling:touch}body>header,#gate,#page,.num,#qj{display:none!important}";
+  fix.textContent = "html,body{height:auto!important;overflow:auto!important;display:block!important;touch-action:pan-y;-webkit-overflow-scrolling:touch}body>header,#gate,#page,.num,#qj{display:none!important}@font-face{font-family:QMHafs;src:url(/yazi-fonts/uthmanic-hafs.woff2) format('woff2');font-display:swap}.ayah p.ar{font-family:QMHafs,'KFGQPC HAFS Uthmanic Script','Traditional Arabic',serif!important;font-size:2.05rem;line-height:2.2}";
   document.head.appendChild(fix);
 
   function trDir() {
@@ -58,6 +58,20 @@
     if (!b) return null;
     var m = (b.textContent || "").match(/(\d+)\s*:\s*(\d+)/);
     return m ? { s: m[1], a: m[2] } : null;
+  }
+  function mushafMark(p) {
+    var t = p.textContent || "";
+    var m = t.match(/^(.*?)(?:\s*[\uFD3F\uFD3E(\u06DD]\s*([0-9\u0660-\u0669]{1,3})\s*[\uFD3E\uFD3F)\u06DD]?\s*)$/);
+    if (!m || !m[1].replace(/\s/g, "")) return;
+    var digits = m[2].replace(/[\u0660-\u0669]/g, function (ch) {
+      return String.fromCharCode(ch.charCodeAt(0) - 0x0660 + 48);
+    });
+    p.textContent = m[1].replace(/\s+$/, "");
+    var s = document.createElement("span");
+    s.className = "mk";
+    s.textContent = digits;
+    p.appendChild(document.createTextNode(" "));
+    p.appendChild(s);
   }
   function nav() {
     document.querySelectorAll(".tr-bar,.pn").forEach(function (n) { n.remove(); });
@@ -116,6 +130,7 @@
       pair.ar.className = "ar";
       pair.ar.lang = "ar";
       pair.ar.setAttribute("dir", "rtl");
+      mushafMark(pair.ar);
       pair.tr.className = "tr";
       pair.tr.setAttribute("dir", dir);
       box.appendChild(pair.ar);
