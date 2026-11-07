@@ -68,6 +68,12 @@
     bar.className = "tr-bar";
     bar.innerHTML = '<a class="x" href="' + base + '/">↑</a><a href="' + base + '/">Mushafuk</a>';
     document.body.insertBefore(bar, document.body.firstChild);
+    if (!document.querySelector("script[data-tr-theme]")) {
+      var th = document.createElement("script");
+      th.src = "/read-theme.js?v=2";
+      th.setAttribute("data-tr-theme", "1");
+      document.head.appendChild(th);
+    }
     var box = document.createElement("nav");
     box.className = "pn";
     function link(href, label) {

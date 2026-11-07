@@ -125,7 +125,11 @@
     root.appendChild(menu);
     document.body.appendChild(root);
     // avoid overlap with .bar close button on tafsir: nudge if bar exists
-    if (document.querySelector(".bar .x")) {
+    if (document.querySelector(".tr-bar .x")) {
+      root.style.insetInlineStart = "auto";
+      root.style.insetInlineEnd = ".55rem";
+      root.style.top = "calc(.42rem + env(safe-area-inset-top))";
+    } else if (document.querySelector(".bar .x")) {
       root.style.insetInlineStart = "auto";
       root.style.insetInlineEnd = ".55rem";
       root.style.top = "calc(3.35rem + env(safe-area-inset-top))";
