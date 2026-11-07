@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap");
+@font-face{font-family:QMHafs;src:url(/yazi-fonts/uthmanic-hafs.woff2) format("woff2");font-display:swap}
 html,body{height:auto!important;min-height:100%;margin:0;overflow:auto!important;touch-action:pan-y;-webkit-overflow-scrolling:touch;overscroll-behavior-x:none}
 body{background:#fffaf0;color:#161310;font-family:"Segoe UI",Tahoma,sans-serif}
 body>header,#gate,#page,.num,#qj{display:none!important}
@@ -9,7 +9,8 @@ body>header,#gate,#page,.num,#qj{display:none!important}
 #qtext h1,#qtext h2{margin:.85rem 0 .2rem;text-align:center;font-size:1rem;font-weight:650;color:#111}
 .ayah{padding:1.15rem 0 .95rem;border-bottom:1px solid #111}
 .ayah p{margin:0}
-.ayah p.ar{font-family:Amiri,"Noto Naskh Arabic",serif;font-size:1.72rem;line-height:2.35;text-align:right;direction:rtl;color:#1a140c;margin:0 0 .7rem}
+.ayah p.ar{font-family:QMHafs,"KFGQPC HAFS Uthmanic Script","Traditional Arabic",serif;font-size:2.05rem;line-height:2.2;text-align:right;direction:rtl;color:#1a1612;margin:0 0 .75rem}
+.ayah p.ar .mk{display:inline-flex;align-items:center;justify-content:center;min-width:1.7em;height:1.7em;margin-inline-start:.35em;padding:0 .2em;border:.08em solid currentColor;border-radius:50%;font-family:"Segoe UI",Tahoma,sans-serif;font-size:.4em;font-weight:700;line-height:1;vertical-align:middle;font-feature-settings:normal}
 .ayah p.tr{font-size:1.06rem;line-height:1.75;color:#111}
 .ayah p.tr[dir="ltr"]{direction:ltr;text-align:left}
 .ayah p.tr[dir="rtl"]{direction:rtl;text-align:right}
@@ -23,6 +24,7 @@ html.qm-theme-white .tr-bar a,html.qm-theme-white #qtext h1,html.qm-theme-white 
 html.qm-theme-white .tr-bar .x{border-color:#111;color:#111}
 html.qm-theme-white .ayah{border-bottom-color:#111}
 html.qm-theme-white .pn span{color:#666!important}
+html.qm-theme-black body{background:#111!important;color:#f2ebe0}
 html.qm-theme-black .tr-bar{background:#161616!important;border-bottom-color:#333}
 html.qm-theme-black .tr-bar a,html.qm-theme-black #qtext h1,html.qm-theme-black #qtext h2,html.qm-theme-black .ayah p.ar,html.qm-theme-black .ayah p.tr,html.qm-theme-black .pn a{color:#f2ebe0!important}
 html.qm-theme-black .tr-bar .x{border-color:#f2ebe0;color:#f2ebe0}
