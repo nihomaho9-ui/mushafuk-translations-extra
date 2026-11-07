@@ -1,12 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Amiri&display=swap");
 html,body{min-height:100%;margin:0}
 body{background:#fffaf0;color:#161310;font-family:"Segoe UI",Tahoma,sans-serif}
-.tr-bar{position:sticky;top:0;z-index:2;display:flex;align-items:center;gap:.7rem;padding:calc(.55rem + env(safe-area-inset-top)) .85rem .55rem;background:#f6f1e4;border-bottom:1px solid rgba(196,165,110,.55)}
+.tr-bar{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:.7rem;padding:calc(.55rem + env(safe-area-inset-top)) .85rem .55rem;background:#f6f1e4;border-bottom:1px solid rgba(196,165,110,.55)}
 .tr-bar a{color:#12352c;font-weight:700;text-decoration:none}
 .tr-bar .x{width:2.2rem;height:2.2rem;border-radius:50%;border:1.5px solid #c4a56e;display:grid;place-items:center;font-size:1.2rem}
-#qtext{max-width:42rem;margin:0 auto;padding:1.1rem 1rem 1rem;font-size:1.12rem;line-height:1.85}
-#qtext h1{font-size:1.15rem;color:#1a3330;text-align:center;font-weight:650}
-#qtext p{margin:.55rem 0}
-#qtext b{color:#0b6b4f}
+#qtext{position:static!important;width:auto!important;height:auto!important;max-width:42rem;margin:0 auto!important;padding:1.1rem 1rem 1rem;overflow:visible!important;clip:auto!important;font-size:1.08rem;line-height:1.75}
+#qtext h1,#qtext h2{font-size:1.05rem;text-align:center;color:#1a3330;font-weight:650}
+#qtext p.ar{font-family:Amiri,"Noto Naskh Arabic",serif;font-size:1.55rem;line-height:2.15;text-align:right;margin:1.15rem 0 .2rem;color:#1a140c}
+#qtext p.tr{margin:.15rem 0 1.05rem}
+#qtext section{display:block}
+#gate,#page,.num{display:none!important}
 .pn{max-width:42rem;margin:0 auto;padding:0 1rem 2.5rem;display:flex;justify-content:space-between;align-items:center;gap:1rem}
-.pn a{color:#0b6b4f;font-weight:700;text-decoration:none;font-size:1.05rem}
+.pn a{color:#0b6b4f;font-weight:700;text-decoration:none;font-size:1.15rem}
 .pn span{color:#8a7d68}
