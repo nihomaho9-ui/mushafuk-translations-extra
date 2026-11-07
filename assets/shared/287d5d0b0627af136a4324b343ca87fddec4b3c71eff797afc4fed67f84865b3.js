@@ -1,5 +1,46 @@
 try{var d=sessionStorage.getItem("qm.turn");if(d){document.documentElement.classList.add("qm-turning");}}catch(e){}
 (function () {
+  if (!window.__trSwipe) {
+    window.__trSwipe = 1;
+    var sx = null, sy = null, slock = null, sdx = 0;
+    function go(dir) {
+      var m = location.pathname.match(/^(.*)\/page\/(\d+)\/?$/);
+      if (!m) return;
+      var n = +m[2] + dir;
+      if (n < 1 || n > 604) return;
+      location.assign(m[1] + "/page/" + n + "/" + location.search + location.hash);
+    }
+    function down(x, y, t) {
+      if (t && t.closest && t.closest("a,button,input,textarea,select")) { sx = null; return; }
+      sx = x; sy = y; slock = null; sdx = 0;
+    }
+    function move(x, y, ev) {
+      if (sx == null) return;
+      var dx = x - sx, dy = y - sy;
+      sdx = dx;
+      if (!slock) {
+        if (Math.abs(dx) < 12 && Math.abs(dy) < 12) return;
+        slock = Math.abs(dx) > Math.abs(dy) * 1.15 ? "x" : "y";
+      }
+      if (slock === "x" && ev && ev.cancelable) ev.preventDefault();
+    }
+    function up() {
+      if (sx == null) return;
+      var dx = sdx, was = slock;
+      sx = null; slock = null;
+      if (was === "x" && Math.abs(dx) > 42) go(dx > 0 ? 1 : -1);
+    }
+    document.addEventListener("touchstart", function (e) {
+      if (e.touches.length !== 1) return;
+      down(e.touches[0].clientX, e.touches[0].clientY, e.target);
+    }, { capture: true, passive: true });
+    document.addEventListener("touchmove", function (e) {
+      if (!e.touches.length) return;
+      move(e.touches[0].clientX, e.touches[0].clientY, e);
+    }, { capture: true, passive: false });
+    document.addEventListener("touchend", function () { up(); }, true);
+    document.addEventListener("touchcancel", function () { sx = null; slock = null; }, true);
+  }
   var art = document.getElementById("qtext");
   if (!art || art.dataset.neat) return;
   art.dataset.neat = "1";
