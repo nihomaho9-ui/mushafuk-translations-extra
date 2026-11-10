@@ -63,3 +63,6 @@ footer{border-top:1px solid #e8dfc9;text-align:center;padding:2rem;color:var(--m
 .uni-name{display:inline-flex;align-items:center;gap:.35em;vertical-align:baseline;max-width:100%;flex-wrap:wrap}
 .uni-name .uni-icon{width:24px;height:24px;object-fit:contain;flex:none}
 html[dir=rtl] .about-copy{text-align:right}
+
+/* footer links have no whitespace between them -> unbreakable line widened the page on mobile */
+footer nav{display:flex;flex-wrap:wrap;justify-content:center;gap:.4rem 0}footer nav a{overflow-wrap:anywhere}
