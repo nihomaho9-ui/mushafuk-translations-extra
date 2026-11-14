@@ -34,3 +34,4 @@ Books on this host are in Persian, Urdu, Bengali, and Indonesian. Other language
 
 - [Sitemap index](https://t1.mushafuk.online/sitemap.xml)
 - [robots.txt](https://t1.mushafuk.online/robots.txt)
+- [License](https://t1.mushafuk.online/LICENSE): All rights reserved. This covers Mushafuk's own work and compilation only. Quran text, translations and tafsirs remain under their authors' and publishers' rights (see Masadir / sources).
