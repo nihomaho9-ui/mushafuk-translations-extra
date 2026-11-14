@@ -1,20 +1,36 @@
-# الترجمات، المجموعة الثانية
+# Mushafuk — more translations
 
-> الأردية والبنغالية والفارسية والإندونيسية وما جاورها. https://t1.mushafuk.online
+> Additional Quran translations and translated tafsirs at https://t1.mushafuk.online. Part of Mushafuk (https://mushafuk.online). Free, no ads.
 
-بقية اللغات: https://t.mushafuk.online/llms.txt
+This host holds a smaller set of books. The main translation catalogue is https://t.mushafuk.online/; that host is linked from every book that is not stored here.
 
-- https://t1.mushafuk.online/ur/junagarhi/
-- https://t1.mushafuk.online/fa/roovad/
-- https://t1.mushafuk.online/tafsir/tercume/mukhtasar/bn/
-- https://t1.mushafuk.online/tafsir/tercume/mukhtasar/id/
-- https://t1.mushafuk.online/tafsir/tercume/saadi/fa/
-- https://t1.mushafuk.online/tafsir/tercume/ibnkathir/bn/
+## Start here
 
-صفحة المصحف، إن وُجدت: https://t1.mushafuk.online/{language}/{translator}/page/{n}/ من 1 إلى 604.
+- [Catalogue on this host](https://t1.mushafuk.online/)
+- [Main translation catalogue (t)](https://t.mushafuk.online/)
+- [Overview on mushafuk.online](https://mushafuk.online/translations/)
+- [Madinah mushaf](https://mushafuk.online/)
+- [Sources](https://t1.mushafuk.online/sources.html)
+- [FAQ](https://t1.mushafuk.online/faq.html)
+
+## Books on this host
+
+Quran translations:
+
+- [Persian — Roovad](https://t1.mushafuk.online/fa/roovad/)
+- [Urdu — Junagarhi](https://t1.mushafuk.online/ur/junagarhi/)
+
+Translated tafsirs:
+
+- al-Mukhtasar: [Bengali](https://t1.mushafuk.online/tafsir/tercume/mukhtasar/bn/), [Persian](https://t1.mushafuk.online/tafsir/tercume/mukhtasar/fa/), [Indonesian](https://t1.mushafuk.online/tafsir/tercume/mukhtasar/id/)
+- al-Sa'di: [Persian](https://t1.mushafuk.online/tafsir/tercume/saadi/fa/), [Indonesian](https://t1.mushafuk.online/tafsir/tercume/saadi/id/), [Urdu](https://t1.mushafuk.online/tafsir/tercume/saadi/ur/)
+- Ibn Kathir: [Bengali](https://t1.mushafuk.online/tafsir/tercume/ibnkathir/bn/), [Urdu](https://t1.mushafuk.online/tafsir/tercume/ibnkathir/ur/)
+
+## Languages
+
+Books on this host are in Persian, Urdu, Bengali, and Indonesian. Other languages are on https://t.mushafuk.online/.
 
 ## For machines
 
-- [Sitemap](https://t1.mushafuk.online/sitemap.xml)
+- [Sitemap index](https://t1.mushafuk.online/sitemap.xml)
 - [robots.txt](https://t1.mushafuk.online/robots.txt)
-- Parent index: https://mushafuk.online/llms.txt
