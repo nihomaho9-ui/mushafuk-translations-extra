@@ -74,6 +74,22 @@
     p.appendChild(document.createTextNode(" "));
     p.appendChild(s);
   }
+  // The Hafs font has no usable glyph for U+06DF (small high rounded zero): it draws a dotted circle.
+  // mushafuk.online maps it to U+06E0 for the same font; do the same here. Tanzil also prefixes the
+  // basmala to ayah 1 of every surah except 1 and 9, but it is not part of the ayah.
+  function forFont(p, v) {
+    var w = document.createTreeWalker(p, 4), n, first = true;
+    while ((n = w.nextNode())) {
+      var t = n.nodeValue;
+      if (first && v && v.a === "1" && v.s !== "1" && v.s !== "9" && /^\s*\u0628\u0650\u0633\u0652\u0645\u0650 /.test(t)) {
+        var parts = t.replace(/^\s+/, "").split(/\s+/);
+        if (parts.length > 4) t = parts.slice(4).join(" ");
+      }
+      if (t.trim()) first = false;
+      if (t.indexOf("\u06DF") >= 0) t = t.replace(/\u06DF/g, "\u06E0");
+      if (t !== n.nodeValue) n.nodeValue = t;
+    }
+  }
   function nav() {
     document.querySelectorAll(".tr-bar,.pn").forEach(function (n) { n.remove(); });
     var m = location.pathname.match(/^(.*)\/page\/(\d+)\/?$/);
@@ -131,6 +147,7 @@
       pair.ar.className = "ar";
       pair.ar.lang = "ar";
       pair.ar.setAttribute("dir", "rtl");
+      forFont(pair.ar, verse(pair.tr));
       mushafMark(pair.ar);
       pair.tr.className = "tr";
       pair.tr.setAttribute("dir", dir);
