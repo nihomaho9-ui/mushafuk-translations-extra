@@ -882,27 +882,36 @@
   function bindSwipe(root) {
     if (!root || root.dataset.swipe) return;
     root.dataset.swipe = "1";
-    let sx = null, slock = null, sdx = 0;
+    let sx = null, sy = 0, st = 0, slock = null, slx = 0, sly = 0;
+    const should = (dx, dy, dt) => window.QM_shouldTurnPage
+      ? window.QM_shouldTurnPage(dx, dy, dt, root.clientWidth || innerWidth)
+      : ((dt < 800 && Math.abs(dx) >= Math.max(60, (root.clientWidth || innerWidth) * 0.15) && Math.abs(dx) > 1.5 * Math.abs(dy || 0)) ? (dx > 0 ? 1 : -1) : 0);
     const down = (x, y, t) => {
       if (t && t.closest && t.closest("a,button,input,textarea,select,label")) { sx = null; return; }
-      sx = x; slock = null; sdx = 0;
+      sx = x; sy = y; st = performance.now(); slock = null; slx = x; sly = y;
     };
-    const move = (x) => {
+    const move = (x, y) => {
       if (sx == null) return;
-      sdx = x - sx;
-      if (!slock && Math.abs(sdx) > 12) slock = "x";
+      slx = x; sly = y;
+      const dx = x - sx, dy = y - sy;
+      if (!slock) {
+        if (Math.abs(dx) < 12 && Math.abs(dy) < 12) return;
+        slock = Math.abs(dx) > Math.abs(dy) * 1.5 ? "x" : "y";
+      }
     };
     const up = () => {
       if (sx == null) return;
-      const dx = sdx, was = slock;
+      const dx = slx - sx, dy = sly - sy, dt = performance.now() - st, was = slock;
       sx = null; slock = null;
-      if (was === "x" && Math.abs(dx) > 42) goPage(curN + (dx > 0 ? 1 : -1));
+      if (was === "y") return;
+      const dir = should(dx, dy, dt);
+      if (dir) goPage(curN + dir);
     };
-    root.addEventListener("touchstart", (e) => { if (e.touches.length !== 1) return; down(e.touches[0].clientX, e.touches[0].clientY, e.target); }, { passive: true });
-    root.addEventListener("touchmove", (e) => { if (!e.touches.length) return; move(e.touches[0].clientX); }, { passive: true });
-    root.addEventListener("touchend", up, { passive: true });
+    root.addEventListener("touchstart", (e) => { if (e.touches.length !== 1) { sx = null; slock = null; return; } down(e.touches[0].clientX, e.touches[0].clientY, e.target); }, { passive: true });
+    root.addEventListener("touchmove", (e) => { if (e.touches.length !== 1) { sx = null; slock = null; return; } if (!e.touches.length) return; move(e.touches[0].clientX, e.touches[0].clientY); }, { passive: true });
+    root.addEventListener("touchend", (e) => { if (e.touches && e.touches.length) { sx = null; slock = null; return; } up(); }, { passive: true });
     root.addEventListener("pointerdown", (e) => { if (e.pointerType === "touch") return; down(e.clientX, e.clientY, e.target); });
-    root.addEventListener("pointermove", (e) => { if (e.pointerType === "touch") return; move(e.clientX); });
+    root.addEventListener("pointermove", (e) => { if (e.pointerType === "touch") return; move(e.clientX, e.clientY); });
     root.addEventListener("pointerup", (e) => { if (e.pointerType === "touch") return; up(); });
   }
 

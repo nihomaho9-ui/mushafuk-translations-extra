@@ -2,7 +2,7 @@
 (function () {
   if (window.__trSwipe !== 2) {
     window.__trSwipe = 2;
-    var sx = null, sy = null, slock = null, sdx = 0;
+    var sx = null, sy = null, st = 0, slock = null, slx = 0, sly = 0;
     function go(dir) {
       var m = location.pathname.match(/^(.*)\/page\/(\d+)\/?$/);
       if (!m) return;
@@ -10,34 +10,48 @@
       if (n < 1 || n > 604) return;
       location.assign(m[1] + "/page/" + n + "/" + location.search + location.hash);
     }
+    function should(dx, dy, dt) {
+      if (window.QM_shouldTurnPage) return window.QM_shouldTurnPage(dx, dy, dt, window.innerWidth);
+      if (dt >= 800) return 0;
+      var min = Math.max(60, window.innerWidth * 0.15);
+      if (Math.abs(dx) < min || Math.abs(dx) <= 1.5 * Math.abs(dy || 0)) return 0;
+      try { var s = window.getSelection(); if (s && String(s).length) return 0; } catch (e) {}
+      return dx > 0 ? 1 : -1;
+    }
     function down(x, y, t) {
-      if (t && t.closest && t.closest("a,button,input,textarea,select")) { sx = null; return; }
-      sx = x; sy = y; slock = null; sdx = 0;
+      if (t && t.closest && t.closest("a,button,input,textarea,select,label")) { sx = null; return; }
+      sx = x; sy = y; st = performance.now(); slock = null; slx = x; sly = y;
     }
     function move(x, y) {
       if (sx == null) return;
+      slx = x; sly = y;
       var dx = x - sx, dy = y - sy;
-      sdx = dx;
       if (!slock) {
         if (Math.abs(dx) < 12 && Math.abs(dy) < 12) return;
-        slock = Math.abs(dx) > Math.abs(dy) * 1.4 ? "x" : "y";
+        slock = Math.abs(dx) > Math.abs(dy) * 1.5 ? "x" : "y";
       }
     }
     function up() {
       if (sx == null) return;
-      var dx = sdx, was = slock;
+      var dx = slx - sx, dy = sly - sy, dt = performance.now() - st, was = slock;
       sx = null; slock = null;
-      if (was === "x" && Math.abs(dx) > 42) go(dx > 0 ? 1 : -1);
+      if (was === "y") return;
+      var dir = should(dx, dy, dt);
+      if (dir) go(dir);
     }
     document.addEventListener("touchstart", function (e) {
-      if (e.touches.length !== 1) return;
+      if (e.touches.length !== 1) { sx = null; slock = null; return; }
       down(e.touches[0].clientX, e.touches[0].clientY, e.target);
     }, { capture: true, passive: true });
     document.addEventListener("touchmove", function (e) {
+      if (e.touches.length !== 1) { sx = null; slock = null; return; }
       if (!e.touches.length) return;
       move(e.touches[0].clientX, e.touches[0].clientY);
     }, { capture: true, passive: true });
-    document.addEventListener("touchend", function () { up(); }, true);
+    document.addEventListener("touchend", function (e) {
+      if (e.touches && e.touches.length) { sx = null; slock = null; return; }
+      up();
+    }, true);
     document.addEventListener("touchcancel", function () { sx = null; slock = null; }, true);
   }
   var art = document.getElementById("qtext");
