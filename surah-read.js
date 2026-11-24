@@ -53,6 +53,7 @@
     "makkah": "Məkkədə nazil olmuşdur",
     "madinah": "Mədinədə nazil olmuşdur",
     "back": "Geri",
+    "home": "Ana səhifə",
     "play": "Dinlə",
     "pause": "Dayandır",
     "settings": "Ayarlar",
@@ -78,6 +79,7 @@
     "makkah": "Mekke'de nâzil olmuştur",
     "madinah": "Medine'de nâzil olmuştur",
     "back": "Geri",
+    "home": "Ana sayfa",
     "play": "Dinle",
     "pause": "Durdur",
     "settings": "Ayarlar",
@@ -103,6 +105,7 @@
     "makkah": "Revealed in Makkah",
     "madinah": "Revealed in Madinah",
     "back": "Back",
+    "home": "Home",
     "play": "Listen",
     "pause": "Stop",
     "settings": "Settings",
@@ -128,6 +131,7 @@
     "makkah": "Ниспослана в Мекке",
     "madinah": "Ниспослана в Медине",
     "back": "Назад",
+    "home": "Главная",
     "play": "Слушать",
     "pause": "Стоп",
     "settings": "Настройки",
@@ -153,6 +157,7 @@
     "makkah": "نزلت في مكة",
     "madinah": "نزلت في المدينة",
     "back": "رجوع",
+    "home": "الرئيسية",
     "play": "استمع",
     "pause": "إيقاف",
     "settings": "الإعدادات",
@@ -178,6 +183,7 @@
     "makkah": "مکہ میں نازل ہوئی",
     "madinah": "مدینہ میں نازل ہوئی",
     "back": "واپس",
+    "home": "صفحہ اول",
     "play": "سنیں",
     "pause": "روکیں",
     "settings": "ترتیبات",
@@ -203,6 +209,7 @@
     "makkah": "در مکه نازل شده است",
     "madinah": "در مدینه نازل شده است",
     "back": "بازگشت",
+    "home": "خانه",
     "play": "گوش دهید",
     "pause": "توقف",
     "settings": "تنظیمات",
@@ -228,6 +235,7 @@
     "makkah": "Makkada nozil bo‘lgan",
     "madinah": "Madinada nozil bo‘lgan",
     "back": "Orqaga",
+    "home": "Bosh sahifa",
     "play": "Tinglash",
     "pause": "To‘xtatish",
     "settings": "Sozlamalar",
@@ -253,6 +261,7 @@
     "makkah": "Дар Макка нозил шудааст",
     "madinah": "Дар Мадина нозил шудааст",
     "back": "Бозгашт",
+    "home": "Саҳифаи асосӣ",
     "play": "Шунидан",
     "pause": "Ист",
     "settings": "Танзимот",
@@ -278,6 +287,7 @@
     "makkah": "Меккеде түшүрүлгөн",
     "madinah": "Мадинада түшүрүлгөн",
     "back": "Артка",
+    "home": "Башкы бет",
     "play": "Угуу",
     "pause": "Токтотуу",
     "settings": "Жөндөөлөр",
@@ -303,6 +313,7 @@
     "makkah": "مەككىدە نازىل بولغان",
     "madinah": "مەدىنىدە نازىل بولغان",
     "back": "قايتىش",
+    "home": "باش بەت",
     "play": "ئاڭلاش",
     "pause": "توختىتىش",
     "settings": "تەڭشەك",
@@ -328,6 +339,7 @@
     "makkah": "په مکه کې نازل شوې",
     "madinah": "په مدینه کې نازل شوې",
     "back": "شا",
+    "home": "کورپاڼه",
     "play": "اورېدل",
     "pause": "درول",
     "settings": "سمونې",
@@ -353,6 +365,7 @@
     "makkah": "Li Mekkeyê hatiye xwarê",
     "madinah": "Li Medîneyê hatiye xwarê",
     "back": "Paş",
+    "home": "Destpêk",
     "play": "Guhearîne",
     "pause": "Bisekine",
     "settings": "Sazkarî",
@@ -378,6 +391,7 @@
     "makkah": "मक्का में अवतीर्ण",
     "madinah": "मदीना में अवतीर्ण",
     "back": "वापस",
+    "home": "मुखपृष्ठ",
     "play": "सुनें",
     "pause": "रोकें",
     "settings": "सेटिंग्स",
@@ -403,6 +417,7 @@
     "makkah": "மக்காவில் இறக்கப்பட்டது",
     "madinah": "மதீனாவில் இறக்கப்பட்டது",
     "back": "பின்",
+    "home": "முகப்பு",
     "play": "கேளுங்கள்",
     "pause": "நிறுத்து",
     "settings": "அமைப்புகள்",
@@ -428,6 +443,7 @@
     "makkah": "Révélée à La Mecque",
     "madinah": "Révélée à Médine",
     "back": "Retour",
+    "home": "Accueil",
     "play": "Écouter",
     "pause": "Arrêter",
     "settings": "Réglages",
@@ -453,6 +469,7 @@
     "makkah": "Offenbart in Mekka",
     "madinah": "Offenbart in Medina",
     "back": "Zurück",
+    "home": "Startseite",
     "play": "Anhören",
     "pause": "Stopp",
     "settings": "Einstellungen",
@@ -478,6 +495,7 @@
     "makkah": "Geopenbaard in Mekka",
     "madinah": "Geopenbaard in Medina",
     "back": "Terug",
+    "home": "Startpagina",
     "play": "Luisteren",
     "pause": "Stoppen",
     "settings": "Instellingen",
@@ -503,6 +521,7 @@
     "makkah": "Revelada en La Meca",
     "madinah": "Revelada en Medina",
     "back": "Atrás",
+    "home": "Inicio",
     "play": "Escuchar",
     "pause": "Detener",
     "settings": "Ajustes",
@@ -528,6 +547,7 @@
     "makkah": "Revelada em Meca",
     "madinah": "Revelada em Medina",
     "back": "Voltar",
+    "home": "Início",
     "play": "Ouvir",
     "pause": "Parar",
     "settings": "Definições",
@@ -553,6 +573,7 @@
     "makkah": "An saukar da ita a Makka",
     "madinah": "An saukar da ita a Madina",
     "back": "Baya",
+    "home": "Gida",
     "play": "Saurara",
     "pause": "Tsaya",
     "settings": "Saituna",
@@ -578,6 +599,7 @@
     "makkah": "Waxaa laga soo dejiyay Makka",
     "madinah": "Waxaa laga soo dejiyay Madiina",
     "back": "Dib",
+    "home": "Bogga hore",
     "play": "Dhageyso",
     "pause": "Jooji",
     "settings": "Dejinta",
@@ -603,6 +625,7 @@
     "makkah": "マッカ啓示",
     "madinah": "マディーナ啓示",
     "back": "戻る",
+    "home": "ホーム",
     "play": "聴く",
     "pause": "停止",
     "settings": "設定",
@@ -621,6 +644,7 @@
 };
 
   const ICO = {
+    home: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11.2 12 4l8 7.2"/><path d="M7 10.2V20h10V10.2"/><path d="M10 20v-6h4v6"/></svg>',
     back: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5 8 12l7 7"/></svg>',
     play: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>',
     pause: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 5.5h3.2v13H7zm6.8 0H17v13h-3.2z"/></svg>',
@@ -964,6 +988,12 @@
     back.href = "/" + TRANSLATOR.base + "/";
     back.setAttribute("aria-label", u.back);
     back.innerHTML = ICO.back;
+    const home = document.createElement("a");
+    home.className = "sr-home qm-home";
+    home.href = "https://mushafuk.online/";
+    home.setAttribute("aria-label", u.home || "Home");
+    home.title = u.home || "Home";
+    home.innerHTML = ICO.home + '<span class="qm-home-lbl">' + (u.home || "Home") + "</span>";
     const h1 = document.createElement("h1");
     h1.innerHTML = title + '<small class="sr-pageno">' + u.page + " " + n + "</small>";
     const play = document.createElement("button");
@@ -978,7 +1008,7 @@
     gear.title = u.settings;
     gear.innerHTML = ICO.gear;
     gear.onclick = openSettings;
-    top.append(back, h1, play, gear);
+    top.append(back, home, h1, play, gear);
 
     const page = el("div", "sr-page");
     const wait = el("p", "sr-wait", u.loading);

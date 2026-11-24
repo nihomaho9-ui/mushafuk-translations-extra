@@ -111,7 +111,14 @@
     var base = m[1], n = +m[2], hash = location.hash || "";
     var bar = document.createElement("header");
     bar.className = "tr-bar";
-    bar.innerHTML = '<a class="x" href="' + base + '/">↑</a><a href="' + base + '/">Mushafuk</a>';
+    var homeLbl = ({az:"Ana səhifə",tr:"Ana sayfa",en:"Home",ru:"Главная",ar:"الرئيسية",ur:"صفحہ اول",fa:"خانه",uz:"Bosh sahifa",tg:"Саҳифаи асосӣ",ky:"Башкы бет",ug:"باش بەت",ps:"کورپاڼه",ku:"Destpêk",hi:"मुखपृष्ठ",ta:"முகப்பு",fr:"Accueil",de:"Startseite",nl:"Startpagina",es:"Inicio",pt:"Início",ha:"Gida",so:"Bogga hore",ja:"ホーム",bn:"মূলপাতা",id:"Beranda",ms:"Laman utama"})[(document.documentElement.lang||"").slice(0,2)]||"Home";
+    if (!document.getElementById("qm-home-css")) {
+      var hs = document.createElement("style");
+      hs.id = "qm-home-css";
+      hs.textContent = "a.qm-home{display:inline-flex;align-items:center;justify-content:center;gap:.3rem;flex:none;color:#0f4d3a;font-weight:650;font-size:.78rem;line-height:1;text-decoration:none;white-space:nowrap;padding:.28rem .58rem;height:2.2rem;box-sizing:border-box;border-radius:999px;border:1px solid rgba(15,77,58,.28);background:rgba(15,77,58,.08)}a.qm-home svg{width:1.15rem;height:1.15rem;display:block;flex:none}@media(max-width:520px){a.qm-home{width:2.2rem;padding:0;gap:0;border-radius:50%}a.qm-home .qm-home-lbl{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);border:0}}";
+      document.head.appendChild(hs);
+    }
+    bar.innerHTML = '<a class="x" href="' + base + '/">↑</a><a class="qm-home" href="https://mushafuk.online/" aria-label="' + homeLbl + '" title="' + homeLbl + '"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11.2 12 4l8 7.2"/><path d="M7 10.2V20h10V10.2"/><path d="M10 20v-6h4v6"/></svg><span class="qm-home-lbl">' + homeLbl + "</span></a>";
     document.body.insertBefore(bar, document.body.firstChild);
     if (!document.querySelector("script[data-tr-theme]")) {
       var th = document.createElement("script");
