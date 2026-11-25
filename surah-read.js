@@ -12,7 +12,7 @@
   const ARNAMES = "الفاتحة,البقرة,آل عمران,النساء,المائدة,الأنعام,الأعراف,الأنفال,التوبة,يونس,هود,يوسف,الرعد,إبراهيم,الحجر,النحل,الإسراء,الكهف,مريم,طه,الأنبياء,الحج,المؤمنون,النور,الفرقان,الشعراء,النمل,القصص,العنكبوت,الروم,لقمان,السجدة,الأحزاب,سبأ,فاطر,يس,الصافات,ص,الزمر,غافر,فصلت,الشورى,الزخرف,الدخان,الجاثية,الأحقاف,محمد,الفتح,الحجرات,ق,الذاريات,الطور,النجم,القمر,الرحمن,الواقعة,الحديد,المجادلة,الحشر,الممتحنة,الصف,الجمعة,المنافقون,التغابن,الطلاق,التحريم,الملك,القلم,الحاقة,المعارج,نوح,الجن,المزمل,المدثر,القيامة,الإنسان,المرسلات,النبأ,النازعات,عبس,التكوير,الانفطار,المطففين,الانشقاق,البروج,الطارق,الأعلى,الغاشية,الفجر,البلد,الشمس,الليل,الضحى,الشرح,التين,العلق,القدر,البينة,الزلزلة,العاديات,القارعة,التكاثر,العصر,الهمزة,الفيل,قريش,الماعون,الكوثر,الكافرون,النصر,المسد,الإخلاص,الفلق,الناس".split(",");
   let TRANSLATOR = { id: "az.musayev", lang: "az", name: "Əlixan Musayev", by: "Azərbaycanca", base: "az/tercume", dir: "ltr", per: false };
   const MADANI = new Set([2, 3, 4, 5, 8, 9, 13, 22, 24, 33, 47, 48, 49, 55, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 76, 98, 99, 110]);
-  const T1 = ["urdu_junagarhi", "persian_ih"];
+  const T1 = ["urdu_junagarhi", "persian_ih", "indonesian_complex", "bengali_zakaria"];
   const WORKS = [
     {id:"az.musayev", base:"az/tercume", name:"Əlixan Musayev", by:"Azərbaycanca", lang:"az", dir:"ltr", per:false},
     {id:"ru.kuliev", base:"ru/perevod", name:"Эльмир Кулиев", by:"Русский", lang:"ru", dir:"ltr", per:false},
@@ -23,6 +23,8 @@
     {id:"english_rwwad", base:"en/rowwad", name:"Rowwad Translation Center", by:"English", lang:"en", dir:"ltr", per:true},
     {id:"urdu_junagarhi", base:"ur/junagarhi", name:"محمد جوناگڑھی", by:"اردو", lang:"ur", dir:"rtl", per:true},
     {id:"persian_ih", base:"fa/roovad", name:"مرکز ترجمه رواد", by:"فارسی", lang:"fa", dir:"rtl", per:true},
+    {id:"indonesian_complex", base:"id/complex", name:"Kementerian Agama Republik Indonesia", by:"Bahasa Indonesia", lang:"id", dir:"ltr", per:true},
+    {id:"bengali_zakaria", base:"bn/zakaria", name:"ড. আবু বকর মুহাম্মাদ যাকারিয়া", by:"বাংলা", lang:"bn", dir:"ltr", per:true},
     {id:"uzbek_mansour", base:"uz/mansour", name:"Алоуддин Мансур", by:"Oʻzbekcha", lang:"uz", dir:"ltr", per:true},
     {id:"tajik_arifi", base:"tg/arifi", name:"Маркази тарҷумаи Равод", by:"Тоҷикӣ", lang:"tg", dir:"ltr", per:true},
     {id:"kyrgyz_hakimov", base:"ky/hakimov", name:"Шамсуддин Хакимов", by:"Кыргызча", lang:"ky", dir:"ltr", per:true},
@@ -38,7 +40,8 @@
     {id:"portuguese_nasr", base:"pt/nasr", name:"Helmi Nasr", by:"Português", lang:"pt", dir:"ltr", per:true},
     {id:"hausa_gummi", base:"ha/gumi", name:"Abubakar Mahmoud Gumi", by:"Hausa", lang:"ha", dir:"ltr", per:true},
     {id:"somali_yacob", base:"so/yacob", name:"Cabdullaahi Xasan Yacquub", by:"Soomaali", lang:"so", dir:"ltr", per:true},
-    {id:"japanese_saeedsato", base:"ja/sato", name:"サイード佐藤", by:"日本語", lang:"ja", dir:"ltr", per:true}
+    {id:"japanese_saeedsato", base:"ja/sato", name:"サイード佐藤", by:"日本語", lang:"ja", dir:"ltr", per:true},
+    {id:"chinese_makin", base:"zh/makin", name:"马坚", by:"中文", lang:"zh", dir:"ltr", per:true}
   ];
   const BY_BASE = {};
   for (const w of WORKS) BY_BASE[w.base] = w;
@@ -640,6 +643,84 @@
     "loading": "読み込み中…",
     "error": "翻訳を読み込めませんでした。通信を確認して、ページを開き直してください。",
     "doc": "クルアーン、ページ {n} — {title} | Mushafuk.online"
+  },
+  "id": {
+    "page": "Halaman",
+    "title": [
+      "prefix",
+      "Surah "
+    ],
+    "ayahs": "{n} ayat",
+    "makkah": "Diturunkan di Makkah",
+    "madinah": "Diturunkan di Madinah",
+    "back": "Kembali",
+    "home": "Beranda",
+    "play": "Dengarkan",
+    "pause": "Berhenti",
+    "settings": "Pengaturan",
+    "bookmark": "Penanda",
+    "copy": "Salin",
+    "share": "Bagikan",
+    "copied": "Disalin",
+    "failed": "Gagal",
+    "tr": "Terjemahan",
+    "prev": "Sebelumnya",
+    "next": "Berikutnya",
+    "loading": "Memuat…",
+    "error": "Terjemahan tidak dapat dimuat. Periksa koneksi internet lalu buka halaman ini lagi.",
+    "doc": "Al-Qur'an, halaman {n} — {title} | Mushafuk.online"
+  },
+  "bn": {
+    "page": "পৃষ্ঠা",
+    "title": [
+      "prefix",
+      "সূরা "
+    ],
+    "ayahs": "{n} আয়াত",
+    "makkah": "মক্কায় অবতীর্ণ",
+    "madinah": "মদিনায় অবতীর্ণ",
+    "back": "ফিরে যান",
+    "home": "প্রথম পাতা",
+    "play": "শুনুন",
+    "pause": "থামুন",
+    "settings": "সেটিংস",
+    "bookmark": "বুকমার্ক",
+    "copy": "কপি",
+    "share": "শেয়ার",
+    "copied": "কপি হয়েছে",
+    "failed": "ব্যর্থ হয়েছে",
+    "tr": "অনুবাদ",
+    "prev": "আগের",
+    "next": "পরের",
+    "loading": "লোড হচ্ছে…",
+    "error": "অনুবাদ লোড করা যায়নি। ইন্টারনেট সংযোগ দেখে পৃষ্ঠাটি আবার খুলুন।",
+    "doc": "কুরআন, পৃষ্ঠা {n} — {title} | Mushafuk.online"
+  },
+  "zh": {
+    "page": "页",
+    "title": [
+      "suffix",
+      ""
+    ],
+    "ayahs": "共{n}节",
+    "makkah": "麦加降示",
+    "madinah": "麦地那降示",
+    "back": "返回",
+    "home": "首页",
+    "play": "收听",
+    "pause": "停止",
+    "settings": "设置",
+    "bookmark": "书签",
+    "copy": "复制",
+    "share": "分享",
+    "copied": "已复制",
+    "failed": "失败",
+    "tr": "译解",
+    "prev": "上一页",
+    "next": "下一页",
+    "loading": "加载中…",
+    "error": "译文无法加载。请检查网络后重新打开本页。",
+    "doc": "古兰经，第 {n} 页 — {title} | Mushafuk.online"
   }
 };
 

@@ -307,6 +307,26 @@
     "mb": 1.6
   },
   {
+    "id": "indonesian_complex",
+    "k": "tr",
+    "name": "Kementerian Agama Republik Indonesia",
+    "by": "Bahasa Indonesia",
+    "lang": "id",
+    "dir": "ltr",
+    "per": true,
+    "mb": 1.4
+  },
+  {
+    "id": "bengali_zakaria",
+    "k": "tr",
+    "name": "ড. আবু বকর মুহাম্মাদ যাকারিয়া",
+    "by": "বাংলা",
+    "lang": "bn",
+    "dir": "ltr",
+    "per": true,
+    "mb": 13.0
+  },
+  {
     "id": "uzbek_mansour",
     "k": "tr",
     "name": "Алоуддин Мансур",
@@ -465,6 +485,16 @@
     "dir": "ltr",
     "per": true,
     "mb": 2.6
+  },
+  {
+    "id": "chinese_makin",
+    "k": "tr",
+    "name": "马坚",
+    "by": "中文",
+    "lang": "zh",
+    "dir": "ltr",
+    "per": true,
+    "mb": 0.7
   },
   {
     "id": "seraj",

@@ -18,5 +18,25 @@
     "dir": "rtl",
     "per": true,
     "mb": 1.6
+  },
+  {
+    "id": "indonesian_complex",
+    "k": "tr",
+    "name": "Kementerian Agama Republik Indonesia",
+    "by": "Bahasa Indonesia",
+    "lang": "id",
+    "dir": "ltr",
+    "per": true,
+    "mb": 1.4
+  },
+  {
+    "id": "bengali_zakaria",
+    "k": "tr",
+    "name": "ড. আবু বকর মুহাম্মাদ যাকারিয়া",
+    "by": "বাংলা",
+    "lang": "bn",
+    "dir": "ltr",
+    "per": true,
+    "mb": 13.0
   }
 ]
