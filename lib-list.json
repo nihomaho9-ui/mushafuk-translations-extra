@@ -20,14 +20,14 @@
     "mb": 1.6
   },
   {
-    "id": "indonesian_complex",
+    "id": "indonesian_sabiq",
     "k": "tr",
-    "name": "Kementerian Agama Republik Indonesia",
+    "name": "Sabiq Company",
     "by": "Bahasa Indonesia",
     "lang": "id",
     "dir": "ltr",
     "per": true,
-    "mb": 1.4
+    "mb": 1.2
   },
   {
     "id": "bengali_zakaria",

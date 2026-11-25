@@ -12,7 +12,7 @@
   const ARNAMES = "الفاتحة,البقرة,آل عمران,النساء,المائدة,الأنعام,الأعراف,الأنفال,التوبة,يونس,هود,يوسف,الرعد,إبراهيم,الحجر,النحل,الإسراء,الكهف,مريم,طه,الأنبياء,الحج,المؤمنون,النور,الفرقان,الشعراء,النمل,القصص,العنكبوت,الروم,لقمان,السجدة,الأحزاب,سبأ,فاطر,يس,الصافات,ص,الزمر,غافر,فصلت,الشورى,الزخرف,الدخان,الجاثية,الأحقاف,محمد,الفتح,الحجرات,ق,الذاريات,الطور,النجم,القمر,الرحمن,الواقعة,الحديد,المجادلة,الحشر,الممتحنة,الصف,الجمعة,المنافقون,التغابن,الطلاق,التحريم,الملك,القلم,الحاقة,المعارج,نوح,الجن,المزمل,المدثر,القيامة,الإنسان,المرسلات,النبأ,النازعات,عبس,التكوير,الانفطار,المطففين,الانشقاق,البروج,الطارق,الأعلى,الغاشية,الفجر,البلد,الشمس,الليل,الضحى,الشرح,التين,العلق,القدر,البينة,الزلزلة,العاديات,القارعة,التكاثر,العصر,الهمزة,الفيل,قريش,الماعون,الكوثر,الكافرون,النصر,المسد,الإخلاص,الفلق,الناس".split(",");
   let TRANSLATOR = { id: "az.musayev", lang: "az", name: "Əlixan Musayev", by: "Azərbaycanca", base: "az/tercume", dir: "ltr", per: false };
   const MADANI = new Set([2, 3, 4, 5, 8, 9, 13, 22, 24, 33, 47, 48, 49, 55, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 76, 98, 99, 110]);
-  const T1 = ["urdu_junagarhi", "persian_ih", "indonesian_complex", "bengali_zakaria"];
+  const T1 = ["urdu_junagarhi", "persian_ih", "indonesian_complex", "bengali_zakaria", "indonesian_sabiq"];
   const WORKS = [
     {id:"az.musayev", base:"az/tercume", name:"Əlixan Musayev", by:"Azərbaycanca", lang:"az", dir:"ltr", per:false},
     {id:"ru.kuliev", base:"ru/perevod", name:"Эльмир Кулиев", by:"Русский", lang:"ru", dir:"ltr", per:false},
@@ -23,13 +23,17 @@
     {id:"english_rwwad", base:"en/rowwad", name:"Rowwad Translation Center", by:"English", lang:"en", dir:"ltr", per:true},
     {id:"urdu_junagarhi", base:"ur/junagarhi", name:"محمد جوناگڑھی", by:"اردو", lang:"ur", dir:"rtl", per:true},
     {id:"persian_ih", base:"fa/roovad", name:"مرکز ترجمه رواد", by:"فارسی", lang:"fa", dir:"rtl", per:true},
-    {id:"indonesian_complex", base:"id/complex", name:"Kementerian Agama Republik Indonesia", by:"Bahasa Indonesia", lang:"id", dir:"ltr", per:true},
+    {id:"indonesian_sabiq", base:"id/sabiq", name:"Sabiq Company", by:"Bahasa Indonesia", lang:"id", dir:"ltr", per:true},
+    {id:"indonesian_complex", base:"id/complex", name:"Kementerian Agama Republik Indonesia", by:"Bahasa Indonesia", lang:"id", dir:"ltr", per:true, hide:true, to:"indonesian_sabiq"},
     {id:"bengali_zakaria", base:"bn/zakaria", name:"ড. আবু বকর মুহাম্মাদ যাকারিয়া", by:"বাংলা", lang:"bn", dir:"ltr", per:true},
     {id:"uzbek_mansour", base:"uz/mansour", name:"Алоуддин Мансур", by:"Oʻzbekcha", lang:"uz", dir:"ltr", per:true},
-    {id:"tajik_arifi", base:"tg/arifi", name:"Маркази тарҷумаи Равод", by:"Тоҷикӣ", lang:"tg", dir:"ltr", per:true},
+    {id:"tajik_khawaja", base:"tg/khawaja", name:"Хоҷа Миров Хоҷа Мир", by:"Тоҷикӣ", lang:"tg", dir:"ltr", per:true},
+    {id:"tajik_arifi", base:"tg/arifi", name:"Маркази тарҷумаи Равод", by:"Тоҷикӣ", lang:"tg", dir:"ltr", per:true, hide:true, to:"tajik_khawaja"},
     {id:"kyrgyz_hakimov", base:"ky/hakimov", name:"Шамсуддин Хакимов", by:"Кыргызча", lang:"ky", dir:"ltr", per:true},
-    {id:"uyghur_saleh", base:"ug/saleh", name:"مۇھەممەد سالىھ", by:"ئۇيغۇرچە", lang:"ug", dir:"rtl", per:true},
-    {id:"pashto_rwwad", base:"ps/roovad", name:"د رواد د ژباړې مرکز", by:"پښتو", lang:"ps", dir:"rtl", per:true},
+    {id:"uyghur_mokhtasar", base:"ug/mukhtasar", name:"مۇختەسەر تەفسىر", by:"ئۇيغۇرچە", lang:"ug", dir:"rtl", per:true},
+    {id:"uyghur_saleh", base:"ug/saleh", name:"مۇھەممەد سالىھ", by:"ئۇيغۇرچە", lang:"ug", dir:"rtl", per:true, hide:true, to:"uyghur_mokhtasar"},
+    {id:"pashto_sarfaraz", base:"ps/sarfaraz", name:"مولوي جانباز سرفراز", by:"پښتو", lang:"ps", dir:"rtl", per:true},
+    {id:"pashto_rwwad", base:"ps/roovad", name:"د رواد د ژباړې مرکز", by:"پښتو", lang:"ps", dir:"rtl", per:true, hide:true, to:"pashto_sarfaraz"},
     {id:"kurdish_bamoki", base:"ku/bamoki", name:"محمد صالح بامۆکی", by:"Kurdî", lang:"ku", dir:"rtl", per:true},
     {id:"hindi_omari", base:"hi/omari", name:"अज़ीज़ुल-हक़ उमरी", by:"हिन्दी", lang:"hi", dir:"ltr", per:true},
     {id:"tamil_omar", base:"ta/omar", name:"உமர் ஷரீஃப்", by:"தமிழ்", lang:"ta", dir:"ltr", per:true},
@@ -37,11 +41,12 @@
     {id:"german_bubenheim", base:"de/bubenheim", name:"Frank Bubenheim, Nadeem Elyas", by:"Deutsch", lang:"de", dir:"ltr", per:true},
     {id:"dutch_center", base:"nl/rowwad", name:"Rowwad Vertaalcentrum", by:"Nederlands", lang:"nl", dir:"ltr", per:true},
     {id:"spanish_garcia", base:"es/garcia", name:"Isa García", by:"Español", lang:"es", dir:"ltr", per:true},
-    {id:"portuguese_nasr", base:"pt/nasr", name:"Helmi Nasr", by:"Português", lang:"pt", dir:"ltr", per:true},
+    {id:"portuguese_nasr", base:"pt/nasr", name:"Helmi Nasr", by:"Português", lang:"pt", dir:"ltr", per:true, hide:true},
     {id:"hausa_gummi", base:"ha/gumi", name:"Abubakar Mahmoud Gumi", by:"Hausa", lang:"ha", dir:"ltr", per:true},
     {id:"somali_yacob", base:"so/yacob", name:"Cabdullaahi Xasan Yacquub", by:"Soomaali", lang:"so", dir:"ltr", per:true},
     {id:"japanese_saeedsato", base:"ja/sato", name:"サイード佐藤", by:"日本語", lang:"ja", dir:"ltr", per:true},
-    {id:"chinese_makin", base:"zh/makin", name:"马坚", by:"中文", lang:"zh", dir:"ltr", per:true}
+    {id:"chinese_suliman", base:"zh/suliman", name:"马坚 · 穆罕默德·苏莱曼 审订", by:"中文", lang:"zh", dir:"ltr", per:true},
+    {id:"chinese_makin", base:"zh/makin", name:"马坚", by:"中文", lang:"zh", dir:"ltr", per:true, hide:true, to:"chinese_suliman"}
   ];
   const BY_BASE = {};
   for (const w of WORKS) BY_BASE[w.base] = w;
@@ -956,8 +961,9 @@
     sheet.id = "sr-sheet";
     if (cur.dir === "rtl") sheet.dir = "rtl";
     sheet.innerHTML = '<div class="handle"></div><h2>' + u.tr + "</h2>";
-    const mine = WORKS.filter((w) => w.lang === cur.lang);
-    const rest = WORKS.filter((w) => w.lang !== cur.lang);
+    const live = WORKS.filter((w) => !w.hide);
+    const mine = live.filter((w) => w.lang === cur.lang);
+    const rest = live.filter((w) => w.lang !== cur.lang);
     let last = "";
     for (const w of mine.concat(rest)) {
       if (w.by !== last) {
@@ -1040,6 +1046,7 @@
     if (n < 1 || n > 604) return;
     const r = route();
     if (!r || !r.meta) return;
+    if (r.meta.to) { const nw = WORKS.find((w) => w.id === r.meta.to); if (nw) { location.replace(workHref(nw, n) + location.hash); return; } }
     curN = n;
     TRANSLATOR = r.meta;
     const u = ui();

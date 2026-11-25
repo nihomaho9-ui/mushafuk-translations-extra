@@ -307,14 +307,14 @@
     "mb": 1.6
   },
   {
-    "id": "indonesian_complex",
+    "id": "indonesian_sabiq",
     "k": "tr",
-    "name": "Kementerian Agama Republik Indonesia",
+    "name": "Sabiq Company",
     "by": "Bahasa Indonesia",
     "lang": "id",
     "dir": "ltr",
     "per": true,
-    "mb": 1.4
+    "mb": 1.2
   },
   {
     "id": "bengali_zakaria",
@@ -337,14 +337,14 @@
     "mb": 2.5
   },
   {
-    "id": "tajik_arifi",
+    "id": "tajik_khawaja",
     "k": "tr",
-    "name": "Маркази тарҷумаи Равод",
+    "name": "Хоҷа Миров Хоҷа Мир",
     "by": "Тоҷикӣ",
     "lang": "tg",
     "dir": "ltr",
     "per": true,
-    "mb": 1.8
+    "mb": 2.3
   },
   {
     "id": "kyrgyz_hakimov",
@@ -357,19 +357,19 @@
     "mb": 2.4
   },
   {
-    "id": "uyghur_saleh",
+    "id": "uyghur_mokhtasar",
     "k": "tr",
-    "name": "مۇھەممەد سالىھ",
+    "name": "مۇختەسەر تەفسىر",
     "by": "ئۇيغۇرچە",
     "lang": "ug",
     "dir": "rtl",
     "per": true,
-    "mb": 2.1
+    "mb": 3.2
   },
   {
-    "id": "pashto_rwwad",
+    "id": "pashto_sarfaraz",
     "k": "tr",
-    "name": "د رواد د ژباړې مرکز",
+    "name": "مولوي جانباز سرفراز",
     "by": "پښتو",
     "lang": "ps",
     "dir": "rtl",
@@ -447,16 +447,6 @@
     "mb": 1.2
   },
   {
-    "id": "portuguese_nasr",
-    "k": "tr",
-    "name": "Helmi Nasr",
-    "by": "Português",
-    "lang": "pt",
-    "dir": "ltr",
-    "per": true,
-    "mb": 1.2
-  },
-  {
     "id": "hausa_gummi",
     "k": "tr",
     "name": "Abubakar Mahmoud Gumi",
@@ -487,9 +477,9 @@
     "mb": 2.6
   },
   {
-    "id": "chinese_makin",
+    "id": "chinese_suliman",
     "k": "tr",
-    "name": "马坚",
+    "name": "马坚 · 穆罕默德·苏莱曼 审订",
     "by": "中文",
     "lang": "zh",
     "dir": "ltr",

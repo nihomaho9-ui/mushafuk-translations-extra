@@ -19,7 +19,7 @@ Quran translations:
 
 - [Persian — Roovad](https://t1.mushafuk.online/fa/roovad/)
 - [Urdu — Junagarhi](https://t1.mushafuk.online/ur/junagarhi/)
-- [Indonesian — Kementerian Agama RI, King Fahd Complex edition](https://t1.mushafuk.online/id/complex/)
+- [Indonesian — Sabiq](https://t1.mushafuk.online/id/sabiq/)
 - [Bengali — Abu Bakr Zakaria, King Fahd Complex print](https://t1.mushafuk.online/bn/zakaria/)
 
 Translated tafsirs:
